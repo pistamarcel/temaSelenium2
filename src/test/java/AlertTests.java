@@ -8,7 +8,7 @@ import java.io.IOException;
 public class AlertTests {
     public static void main(String[] args) {
 
-        secondAlertTest();
+        thirdAlertTest();
 
 
     }
@@ -68,6 +68,45 @@ public class AlertTests {
         }
 
     }
+
+    public static void thirdAlertTest(){
+        ChromeDriver driver = null;
+       try {
+            driver = BrowserManager.getChromeDriver();
+            driver.get("https://testpages.herokuapp.com/styled/alerts/alert-test.html");
+
+           WebElement thirdButton = driver.findElement(By.id("promptexample"));
+           for (int i = 0; i <= 1; i++) {
+               thirdButton.click();
+               System.out.println("Is alert open after click on button: " + isAlertOpened(driver));
+               Alert alert = driver.switchTo().alert();
+               if (i == 0) {
+
+                   alert.sendKeys("Am schimbat textul");
+                   alert.accept();
+                   System.out.println(driver.findElement(By.id("promptreturn")).getText());
+
+               } else {
+                   alert.dismiss();
+               }
+
+               System.out.println(driver.findElement(By.id("promptexplanation")).getText());
+               System.out.println("Is alert open after is has been closed: " + isAlertOpened(driver));
+               System.out.println("--------------------------");
+
+           }
+
+       }catch(Exception | Error e){
+           System.out.println("Am intrat in blocul de catch ");
+
+       }finally {
+            if (driver != null) {
+                driver.quit();
+                System.out.println("Am inchis driverul");
+            }
+        }
+    }
+
 
     public static boolean isAlertOpened(ChromeDriver driver) {
 
