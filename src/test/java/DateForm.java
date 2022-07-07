@@ -22,10 +22,10 @@ public class DateForm {
             driver = BrowserManager.getChromeDriver();
             driver.get("https://testpages.herokuapp.com/styled/html5-form-test.html");
 
-            JavascriptExecutor js = (JavascriptExecutor)driver;
-            js.executeScript("arguments[0].value = arguments[1]",
-                    driver.findElement(By.id("date-picker")), "14-07-2022");
-            Thread.sleep(3000);
+//            JavascriptExecutor js = (JavascriptExecutor)driver;
+//            js.executeScript("arguments[0].value = arguments[1]",
+//                    driver.findElement(By.id("date-picker")), "14-07-2022");
+//            Thread.sleep(3000);
             WebElement newdate =  driver.findElement(By.id("date-picker"));
 
 
