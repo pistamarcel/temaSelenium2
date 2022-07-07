@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3802b635-3b72-43ba-a616-a596fc65f359" name="Changes" comment="fixed idea pe bune">
-      <change beforePath="$PROJECT_DIR$/src/test/java/FakeAlerts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/FakeAlerts.java" afterDir="false" />
-    </list>
+    <list default="true" id="3802b635-3b72-43ba-a616-a596fc65f359" name="Changes" comment="first change" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,7 +59,21 @@
       <option name="project" value="LOCAL" />
       <updated>1657226243700</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="1 change">
+      <created>1657226852462</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1657226852462</updated>
+    </task>
+    <task id="LOCAL-00003" summary="first change">
+      <created>1657227118315</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1657227118315</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -77,6 +89,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fixed idea pe bune" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed idea pe bune" />
+    <MESSAGE value="1 change" />
+    <MESSAGE value="first change" />
+    <option name="LAST_COMMIT_MESSAGE" value="first change" />
   </component>
 </project>
