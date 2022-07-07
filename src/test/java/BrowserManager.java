@@ -6,4 +6,5 @@ public class BrowserManager {
         WebDriverManager.chromedriver().setup();
         return new ChromeDriver();
     }
+
 }
