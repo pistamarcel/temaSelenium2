@@ -20,7 +20,7 @@ public class DateForm {
         ChromeDriver driver = null;
         try {
             driver = BrowserManager.getChromeDriver();
-   qq         driver.get("https://testpages.herokuapp.com/styled/html5-form-test.html");
+            driver.get("https://testpages.herokuapp.com/styled/html5-form-test.html");
 
             JavascriptExecutor js = (JavascriptExecutor)driver;
             js.executeScript("arguments[0].value = arguments[1]",
