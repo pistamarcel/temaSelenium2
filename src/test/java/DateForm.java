@@ -1,8 +1,5 @@
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
@@ -21,40 +18,56 @@ public class DateForm {
         try {
             driver = BrowserManager.getChromeDriver();
             driver.get("https://testpages.herokuapp.com/styled/html5-form-test.html");
-//            JavascriptExecutor js = (JavascriptExecutor)driver;
-//           js.executeScript("arguments[0].value = arguments[1]",
-//                    driver.findElement(By.id("date-time-picker")), "2022-14-07T14:00");
-//            Thread.sleep(3000);
 
+
+            WebElement reset = driver.findElement(By.cssSelector("input[type=\"reset\"]"));
+            WebElement color= driver.findElement(By.id("colour-picker"));
             WebElement form = driver.findElement(By.id("HTMLFormElements"));
             WebElement newdate =  driver.findElement(By.id("date-picker"));
-            newdate.sendKeys("07/14/2022");
             WebElement date = driver.findElement(By.cssSelector("label[for=\"date-picker\"]"));
-            System.out.println(date.getText());
-
+            color.sendKeys("#6cab0d");
             WebElement newTimeDate =  driver.findElement(By.id("date-time-picker"));
-            newTimeDate.clear();
-            newTimeDate.sendKeys("07-14-2022 14:10 ");
-
             WebElement email =  driver.findElement(By.id("email-field"));
-            email.sendKeys("marcel.pista966@e-uvt.ro");
-
             WebElement newMonth =  driver.findElement(By.id("month-field"));
-            newMonth.sendKeys("07-2022");
-
             WebElement newNumber =  driver.findElement(By.id("number-field"));
-            newNumber.clear();
-            newNumber.sendKeys("52");
 
-            form.submit();
+            for(int i = 0; i <= 1; i++) {
+                newdate.sendKeys("07/14/2022");
+                System.out.println(date.getText());
+                newTimeDate.sendKeys("07-14-2022");
+                newTimeDate.sendKeys(Keys.TAB);
+                newTimeDate.sendKeys("1400PM");
+                email.sendKeys("marcel.pista966@e-uvt.ro");
+                newMonth.sendKeys("07");
+                newMonth.sendKeys(Keys.TAB);
+                newMonth.sendKeys("2022");
+                newNumber.clear();
+                newNumber.sendKeys("52");
+                if (i == 0) {
+                    form.submit();
+                    WebElement backToFormButton = driver.findElement(By.id("back_to_form"));
+                    backToFormButton.click();
+                } else {
+                    reset.click();
+                    System.out.println("Am resetat formularul cu calendar");
+                }
 
-
-//
-
-
+            }
 
         } catch (Exception | Error e) {
-            System.out.println("Am intrat in catch ");;
+            System.out.println("Am intrat in catch ");
+            if (driver != null) {
+                File file = driver.getScreenshotAs(OutputType.FILE);
+                File destfile = new File("C:\\Users\\marce\\IdeaProjects\\DateFormError.png");
+                try {
+                    FileUtils.copyFile(file, destfile);
+                } catch (IOException ex) {
+                    System.out.println("Screenshot copy failed.");
+                }
+
+            } else {
+                System.out.println("Driver instance failed to create succesfully!");
+            }
         } finally {
             if (driver != null) {
                 driver.quit();
