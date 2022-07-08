@@ -12,27 +12,41 @@ import java.io.InterruptedIOException;
 import java.util.List;
 
 public class DateForm {
-    public static void main(String[] args) throws InterruptedException{
+    public static void main(String[] args) {
         fillFormDetails();
     }
 
-    public static void fillFormDetails() throws InterruptedException {
+    public static void fillFormDetails()  {
         ChromeDriver driver = null;
         try {
             driver = BrowserManager.getChromeDriver();
             driver.get("https://testpages.herokuapp.com/styled/html5-form-test.html");
-
 //            JavascriptExecutor js = (JavascriptExecutor)driver;
-//            js.executeScript("arguments[0].value = arguments[1]",
-//                    driver.findElement(By.id("date-picker")), "14-07-2022");
+//           js.executeScript("arguments[0].value = arguments[1]",
+//                    driver.findElement(By.id("date-time-picker")), "2022-14-07T14:00");
 //            Thread.sleep(3000);
+
+            WebElement form = driver.findElement(By.id("HTMLFormElements"));
             WebElement newdate =  driver.findElement(By.id("date-picker"));
-
-
+            newdate.sendKeys("07/14/2022");
             WebElement date = driver.findElement(By.cssSelector("label[for=\"date-picker\"]"));
             System.out.println(date.getText());
 
+            WebElement newTimeDate =  driver.findElement(By.id("date-time-picker"));
+            newTimeDate.clear();
+            newTimeDate.sendKeys("07-14-2022 14:10 ");
 
+            WebElement email =  driver.findElement(By.id("email-field"));
+            email.sendKeys("marcel.pista966@e-uvt.ro");
+
+            WebElement newMonth =  driver.findElement(By.id("month-field"));
+            newMonth.sendKeys("07-2022");
+
+            WebElement newNumber =  driver.findElement(By.id("number-field"));
+            newNumber.clear();
+            newNumber.sendKeys("52");
+
+            form.submit();
 
 
 //
