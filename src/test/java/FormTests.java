@@ -13,10 +13,7 @@ import java.util.List;
 public class FormTests {
 
 
-    public static void main(String[] args) {
-        fillFormDetails();
 
-    }
 
     public static void fillFormDetails() {
         ChromeDriver driver = null;

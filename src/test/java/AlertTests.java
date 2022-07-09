@@ -6,12 +6,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class AlertTests {
-    public static void main(String[] args) {
 
-        thirdAlertTest();
-
-
-    }
 
     public static void firstAlertTest() {
         ChromeDriver driver = null;

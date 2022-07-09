@@ -5,9 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.Set;
 
 public class FakeAlerts {
-    public static void main(String[] args) {
-        fakeAlerts();
-    }
+
 
 
     public static void fakeAlerts(){
