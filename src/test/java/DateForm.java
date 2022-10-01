@@ -1,20 +1,18 @@
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Test;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InterruptedIOException;
-import java.util.List;
 
-public class DateForm {
+public class DateForm extends Base{
 
+    @Test
+    public  void fillDateFormDetails() {
 
-    public static void fillDateFormDetails() {
-        ChromeDriver driver = null;
         try {
-            driver = BrowserManager.getChromeDriver();
+            driver = BrowserManager.getChromeDriverByManager();
             driver.get("https://testpages.herokuapp.com/styled/html5-form-test.html");
 
 

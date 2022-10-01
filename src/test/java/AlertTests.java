@@ -1,17 +1,14 @@
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
 
-import java.io.File;
-import java.io.IOException;
+public class AlertTests extends Base{
 
-public class AlertTests {
+    @Test
+    public void firstAlertTest() {
 
-
-    public static void firstAlertTest() {
-        ChromeDriver driver = null;
         try {
-            driver = BrowserManager.getChromeDriver();
+            driver = BrowserManager.getChromeDriverByManager();
             driver.get("https://testpages.herokuapp.com/styled/alerts/alert-test.html");
             WebElement firstButton = driver.findElement(By.id("alertexamples"));
             firstButton.click();
@@ -29,11 +26,11 @@ public class AlertTests {
         }
 
     }
+    @Test
+    public void secondAlertTest() {
 
-    public static void secondAlertTest() {
-        ChromeDriver driver = null;
         try {
-            driver = BrowserManager.getChromeDriver();
+            driver = BrowserManager.getChromeDriverByManager();
             driver.get("https://testpages.herokuapp.com/styled/alerts/alert-test.html");
 
             WebElement secondButton = driver.findElement(By.id("confirmexample"));
@@ -63,11 +60,11 @@ public class AlertTests {
         }
 
     }
+    @Test
+    public  void thirdAlertTest(){
 
-    public static void thirdAlertTest(){
-        ChromeDriver driver = null;
        try {
-            driver = BrowserManager.getChromeDriver();
+            driver = BrowserManager.getChromeDriverByManager();
             driver.get("https://testpages.herokuapp.com/styled/alerts/alert-test.html");
 
            WebElement thirdButton = driver.findElement(By.id("promptexample"));

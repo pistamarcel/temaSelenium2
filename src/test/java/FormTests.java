@@ -1,24 +1,24 @@
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Test;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-public class FormTests {
+public class FormTests extends Base {
 
 
 
+    @Test
+    public  void fillFormDetails() {
 
-    public static void fillFormDetails() {
-        ChromeDriver driver = null;
         try {
-            driver = BrowserManager.getChromeDriver();
+            driver = BrowserManager.getChromeDriverByManager();
             driver.get("https://testpages.herokuapp.com/styled/basic-html-form-test.html");
             WebElement form = driver.findElement(By.id("HTMLFormElements"));
             WebElement userName = driver.findElement(By.name("username"));

@@ -1,18 +1,19 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
 
 import java.util.Set;
 
-public class FakeAlerts {
+public class FakeAlerts  extends Base {
 
 
+    @Test
+    public void fakeAlerts(){
 
-    public static void fakeAlerts(){
-        ChromeDriver driver=null;
 
         try {
-            driver = BrowserManager.getChromeDriver();
+            driver = BrowserManager.getChromeDriverByManager();
             driver.get("https://testpages.herokuapp.com/styled/alerts/fake-alert-test.html");
             WebElement fakeAlertButton = driver.findElement(By.id("fakealert"));
             fakeAlertButton.click();

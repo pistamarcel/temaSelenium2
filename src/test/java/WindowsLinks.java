@@ -3,18 +3,18 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Test;
 
 import java.util.List;
 import java.util.Set;
 
-public class WindowsLinks {
+public class WindowsLinks  extends Base{
 
+    @Test
+    public    void firstTwoPages()  {
 
-    public static   void firstTwoPages()  {
-        ChromeDriver driver = null;
         try {
-            driver = BrowserManager.getChromeDriver();
+            driver = BrowserManager.getChromeDriverByManager();
             driver.get("https://testpages.herokuapp.com/styled/windows-test.html");
 
 
@@ -96,11 +96,11 @@ public class WindowsLinks {
     }
 
 
+    @Test
+    public  void thirdLink(){
 
-    public static void thirdLink(){
-        ChromeDriver driver = null;
         try {
-            driver = BrowserManager.getChromeDriver();
+            driver = BrowserManager.getChromeDriverByManager();
             driver.get("https://testpages.herokuapp.com/styled/windows-test.html");
 
 
@@ -125,7 +125,7 @@ public class WindowsLinks {
             WebElement secondButton = driver.findElement(By.id("confirmexample"));
             for (int i = 0; i <= 1; i++) {
                 secondButton.click();
-                System.out.println("Is alert open after click on button: " + isAlertOpened(driver));
+                System.out.println("Is alert open after click on button: " + AlertTests.isAlertOpened(driver));
                 Alert alert = driver.switchTo().alert();
                 if (i == 0) {
                     alert.accept();
@@ -134,7 +134,7 @@ public class WindowsLinks {
                 }
 
                 System.out.println(driver.findElement(By.id("confirmexplanation")).getText());
-                System.out.println("Is alert open after is has been closed: " + isAlertOpened(driver));
+                System.out.println("Is alert open after is has been closed: " + AlertTests.isAlertOpened(driver));
                 System.out.println("--------------------------");
 
             }
@@ -142,7 +142,7 @@ public class WindowsLinks {
             WebElement thirdButton = driver.findElement(By.id("promptexample"));
             for (int i = 0; i <= 1; i++) {
                 thirdButton.click();
-                System.out.println("Is alert open after click on button: " + isAlertOpened(driver));
+                System.out.println("Is alert open after click on button: " + AlertTests.isAlertOpened(driver));
                 Alert alert = driver.switchTo().alert();
                 if (i == 0) {
 
@@ -154,7 +154,7 @@ public class WindowsLinks {
                 }
 
                 System.out.println(driver.findElement(By.id("promptexplanation")).getText());
-                System.out.println("Is alert open after is has been closed: " + isAlertOpened(driver));
+                System.out.println("Is alert open after is has been closed: " + AlertTests.isAlertOpened(driver));
                 System.out.println("--------------------------");
             }
     }catch (Exception | Error e){
@@ -167,16 +167,7 @@ public class WindowsLinks {
     }
 
 
-    public static boolean isAlertOpened(ChromeDriver driver) {
 
-            try {
-                driver.switchTo().alert();
-                return true;
-            }catch (NoAlertPresentException e){
-                return false;
-            }
-
-        }
 
 
 }
