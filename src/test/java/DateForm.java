@@ -1,6 +1,5 @@
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
 import java.io.File;
